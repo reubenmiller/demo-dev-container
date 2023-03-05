@@ -1,0 +1,8 @@
+image:
+  repository: custom/app
+  pullPolicy: Never
+
+app:
+  settings:
+    - name: NAME
+      value: "again"
