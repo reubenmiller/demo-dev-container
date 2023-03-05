@@ -14,7 +14,7 @@ package: build
 start-docker: package
 	docker run --rm app
 
-start-docker-multi: package
+start-docker-compose: package
 	docker compose -f container/docker-compose.yaml up
 
 package-helm: build
