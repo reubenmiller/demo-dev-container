@@ -26,7 +26,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "nohup bash -c 'minikube start &' > minikube.log 2>&1",
+	"postStartCommand": "nohup bash -c 'minikube status || minikube start &' > minikube.log 2>&1",
 
 	// Configure tool-specific properties.
 	"customizations": {
