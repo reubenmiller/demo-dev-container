@@ -3,7 +3,9 @@ NAME?="myapp"
 
 build:
 	rm -f dist/app
-	go build -o dist/app main.go
+	mkdir -p dist
+	CGO_ENABLED=0 go build -ldflags '-w -extldflags "-static"' -o dist/app main.go
+	chmod +x dist/app
 
 start:
 	@go run main.go
@@ -12,7 +14,7 @@ package: build
 	docker build -t app -f container/Dockerfile .
 
 start-docker: package
-	docker run --rm app
+	docker run --rm -p 9000:9000 app
 
 start-docker-compose: package
 	docker compose -f container/docker-compose.yaml up

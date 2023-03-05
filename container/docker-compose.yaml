@@ -2,9 +2,13 @@ version: '3'
 services:
   app1:
     image: app
+    ports:
+      - 9000:9000
     environment:
       - NAME=team
   app2:
     image: app
+    ports:
+      - 9001:9000
     environment:
       - NAME=you
