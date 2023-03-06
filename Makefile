@@ -1,6 +1,9 @@
 
 NAME?="myapp"
 
+start-minikube:
+	nohup bash -c 'minikube status || minikube start &' > minikube.log 2>&1
+
 build:
 	rm -f dist/app
 	mkdir -p dist
